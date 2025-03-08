@@ -1,34 +1,38 @@
-using System;
-using Managers;
 using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+namespace Managers
 {
-    public TextMeshProUGUI coinText;
-    public Slider healthSlider;
+    public class UIManager : MonoBehaviour
+    {
+        #region Variables
+            public TextMeshProUGUI coinText;
+            public Slider healthSlider;
+        #endregion
     
-    public void OnEnable()
-    {
-        PlayerBase.OnHurt += ChangeLife;
-        CoinManager.CoinCountChanged += UpdateMoney;
-    }
+        //Manages UI updates of life and money
+        public void OnEnable()
+        {
+            PlayerBase.OnHurt += ChangeLife;
+            CoinManager.CoinCountChanged += UpdateMoney;
+        }
 
-    public void OnDisable()
-    {
-        PlayerBase.OnHurt -= ChangeLife;
-        CoinManager.CoinCountChanged -= UpdateMoney;
-    }
+        public void OnDisable()
+        {
+            PlayerBase.OnHurt -= ChangeLife;
+            CoinManager.CoinCountChanged -= UpdateMoney;
+        }
 
-    private void ChangeLife(int health)
-    {
-        healthSlider.value = health;
-    }
+        private void ChangeLife(int health)
+        {
+            healthSlider.value = health;
+        }
 
-    private void UpdateMoney(int money)
-    {
-        coinText.text = "$"+ money;
+        private void UpdateMoney(int money)
+        {
+            coinText.text = "$"+ money;
+        }
     }
 }

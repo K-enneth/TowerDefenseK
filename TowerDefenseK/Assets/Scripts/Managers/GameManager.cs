@@ -9,10 +9,14 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private List<Enemy> _enemiesAlive;
-        public Canvas winCanvas;
-        public Canvas loseCanvas;
-        private float _enemyCount;
+        #region Variables
+            public Canvas winCanvas;
+            public Canvas loseCanvas;
+            private List<Enemy> _enemiesAlive;
+            private float _enemyCount;
+        #endregion
+        
+        //Manages game over and restart game
         
         public void OnEnable()
         {
@@ -28,19 +32,16 @@ namespace Managers
             Enemy.DeadEvent += CheckEnemies;
         }
         
-
         private void GameOver()
         {
             loseCanvas.enabled = true;
             Time.timeScale = 0;
-            Debug.Log("Game Over");
         }
 
         private void WinGame()
         {
             winCanvas.enabled = true;
             Time.timeScale = 0;
-            Debug.Log("YOU WIN");
         }
         
         public void RestartGame()
@@ -50,13 +51,14 @@ namespace Managers
         
         private void GetEnemiesAlive()
         {
-            Debug.Log("GETTING ENEMIES ALIVE");
+            //Getting enemies left from last wave
             _enemiesAlive= FindObjectsByType<Enemy>(FindObjectsSortMode.None).ToList();
             _enemyCount= _enemiesAlive.Count;
         }
 
         private void CheckEnemies()
         {
+            //Only checks enemies alive when it's the last wave
             if(_enemiesAlive==null) return;
             for (int indexEnemy = 0; indexEnemy < _enemiesAlive.Count; indexEnemy++)
             {

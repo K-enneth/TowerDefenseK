@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b288656670cdc40bf6a25142480d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 50
+  startHealth: 60
   currentHealth: 0
-  damage: 50
-  points: 5
+  damage: 30
+  points: 10
 --- !u!54 &7816008371001840631
 Rigidbody:
   m_ObjectHideFlags: 0

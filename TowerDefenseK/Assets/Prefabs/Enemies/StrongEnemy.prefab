@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   waypointHolder: {fileID: 0}
-  speed: 10
+  speed: 3
   minDistance: 1
   currentWaypoint: 0
 --- !u!114 &8428854849789502214
@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b288656670cdc40bf6a25142480d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 70
+  startHealth: 80
   currentHealth: 0
   damage: 40
-  points: 40
+  points: 20
 --- !u!54 &7816008371001840631
 Rigidbody:
   m_ObjectHideFlags: 0
